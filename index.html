@@ -107,7 +107,7 @@ body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: 
       <div style="display:grid;grid-template-columns:1fr auto;gap:16px;padding:24px 0;border-bottom:1px solid var(--border);">
         <div>
           <div style="font-size:13px;font-weight:700;color:var(--grey-dark);margin-bottom:6px;letter-spacing:0.01em;">Frederik Frede</div>
-          <div style="font-size:12px;color:var(--grey-mid);line-height:1.5;">Co-Founder — Creative Director<br>Vitra, USM, HAY, e15, &amp;Tradition, Architonic,<br>Thonet, Louis Vuitton, Sonos, Pernod Ricard</div>
+          <div style="font-size:12px;color:var(--grey-mid);line-height:1.5;">Co-Founder — Creative Director<br>Vitra, USM, HAY, &amp;Tradition, Architonic,<br>Thonet, Louis Vuitton, Sonos, Pernod Ricard</div>
         </div>
         <div style="font-size:11px;color:var(--grey-light);letter-spacing:0.04em;padding-top:2px;">01</div>
       </div>
@@ -166,7 +166,7 @@ const G = document.getElementById('case-grid');
 cases.forEach(p => {
   const a = document.createElement('a');
   a.className = 'ci ' + (p.full ? 'full' : p.ratio);
-  a.href = '/miad-studio/work.html';
+  a.href = 'miad_work.html';
 
   let media = '';
   if (p.type === 'video') {
