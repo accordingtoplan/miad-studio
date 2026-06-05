@@ -125,6 +125,36 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
 .footer-links a { font-size:12px; color:var(--grey-mid); text-decoration:none; }
 .footer-links a:hover { color:var(--grey-dark); }
 
+/* ── MOBILE ──────────────────────────────────────────────── */
+@media (max-width: 640px) {
+
+  /* Nav */
+  .nav { padding:14px 16px; }
+  .nav-links { display:none; }
+
+  /* Page */
+  .page { padding:40px 16px 72px; }
+
+  /* Capabilities — single col */
+  .cap-list { grid-template-columns:1fr; }
+
+  /* Contact grid — single col */
+  .contact-grid { grid-template-columns:1fr; }
+
+  /* Client list — single col */
+  .client-list { columns:1; }
+
+  /* People — stack name + role */
+  .people-item { flex-direction:column; gap:4px; }
+
+  /* Sections */
+  .section { margin-top:64px; }
+
+  /* Footer */
+  .footer-bar { padding:16px 16px; }
+
+}
+
 </style>
 </head>
 <body>
