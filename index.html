@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MIAD</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 :root { --grey-dark:#4a4540; --grey-mid:#7a7470; --grey-light:#a8a39f; --border:#c8c3be; --bg:#fff; }
@@ -17,7 +18,7 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
   position:sticky; top:0; background:var(--bg); z-index:100;
 }
 .nav-left { display:flex; align-items:baseline; }
-.nav-logo { font-size:13px; font-weight:700; letter-spacing:0.02em; color:var(--grey-dark); text-decoration:none; }
+.nav-logo { font-size:16px; font-weight:400; letter-spacing:0.01em; color:var(--grey-dark); text-decoration:none; font-family:'UnifrakturMaguntia',serif; }
 .nav-studio { font-size:13px; font-weight:400; color:var(--grey-mid); text-decoration:none; }
 .nav-links { display:flex; gap:24px; list-style:none; }
 .nav-links a { font-size:12px; font-weight:400; color:var(--grey-mid); text-decoration:none; }
@@ -51,6 +52,8 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
 .project-item.portrait .img-wrap { width:35%; margin:0 auto; overflow:hidden; aspect-ratio:4/5; }
 
 /* Square: centered ~55% */
+.project-item.portrait { padding:48px 0; }
+.project-item.square { padding:40px 0; }
 .project-item.square .img-wrap { width:42%; margin:0 auto; overflow:hidden; aspect-ratio:1/1; }
 
 .img-wrap img, .img-wrap video {
@@ -157,7 +160,7 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
   <div class="footer-col"><div class="footer-label">Navigation</div><div class="footer-val"><a href="/miad-studio/work.html">Work</a><br><a href="/miad-studio/about.html">About</a><br><a href="/miad-studio/about.html#contact">Contact</a></div></div>
 </div>
 <div class="footer-bottom">
-  <span class="footer-copy">© 2026 MIAD</span>
+  <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:13px;">MIAD</span></span>
   <span class="footer-copy">Merging Intelligence &amp; Design</span>
 </div>
 
