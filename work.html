@@ -25,7 +25,7 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
 .section-count { font-size:11px; color:var(--grey-light); }
 
 /* GRID */
-.grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--border); }
+.grid { display:flex; flex-direction:column; gap:1px; background:transparent; }
 .ci { background:var(--bg); display:block; text-decoration:none; overflow:hidden; cursor:pointer; }
 .ciw { width:100%; overflow:hidden; background:#ede9e5; position:relative; }
 .ciw img, .ciw video { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
@@ -33,7 +33,7 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
 .ci.p .ciw { aspect-ratio:4/5; }
 .ci.l .ciw { aspect-ratio:5/4; }
 .ci.sq .ciw { aspect-ratio:1/1; }
-.ci.full { grid-column:1/-1; }
+
 .ci.full .ciw { aspect-ratio:21/8; }
 .ci.architonic .ciw { aspect-ratio:8/5; }
 .cm { padding:13px 24px 20px; display:flex; justify-content:space-between; align-items:baseline; }
@@ -134,8 +134,6 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
 </div>
 
 <script>
-// All projects — landscape = full width, portrait = half width
-// Vitra = carousel (full width)
 const VITRA_IMGS = [
   "https://static.vitra.com/media/asset/979518/storage/v_fullbleed_1440x/15702284.jpg",
   "https://static.vitra.com/media/asset/732547/storage/v_fullbleed_1440x/09055959.jpg",
@@ -146,103 +144,95 @@ const VITRA_IMGS = [
 ];
 
 const projects = [
-  // Landscape = full width
-  { b:"Louis Vuitton",      t:"Employer Branding",      ratio:"p",    type:"video",
-    src:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton/v2_lv_graded_render_h264-Original_Sub_02_2.mp4",
+  { b:"Louis Vuitton",      t:"Employer Branding",
+    type:"video", src:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton/v2_lv_graded_render_h264-Original_Sub_02_2.mp4",
     poster:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton-a-global-employer-branding-campaign-and-extended-work-culture-documentary/Friends-of-Friends-LV-WorkshopsCreation-0392.jpg" },
-  { b:"Dauphin",            t:"Go-to-Market",            ratio:"p",    type:"img",
-    src:"https://dacoql.wpenginepowered.com/wp-content/uploads/2026/01/averio-PLP_main.jpg" },
-  { b:"Vitra",              t:"Brand Strategy",          ratio:"full", type:"carousel" },
-  { b:"HAY",                t:"Creative Direction",      ratio:"full", type:"img",
-    src:"https://www.hay.com/globalassets/media/brandsite/hays-world/news/2018-milan-design-week/no-setup-milan-2018.jpg?w=1400" },
-  { b:"Sonos",              t:"Brand &amp; Content",     ratio:"sq",   type:"img",
-    src:"https://media.sonos.com/images/znqtjj88/production/12bfad13c968850e7b5795545773ce893fede974-2440x2440.jpg?w=1080&q=100&fit=clip&auto=format" },
-  { b:"NZZ",                t:"Brand &amp; Digital",     ratio:"p",    type:"img",
-    src:"https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png" },
-  { b:"Architonic",         t:"Platform Strategy",       ratio:"full", type:"img",
-    src:"https://media.architonic.com/system-on/homer/architonic.jpg?width=1256&height=862&fit=inside&crop=true&format=webp" },
-  { b:"Frederik G. Pferdt", t:"Brand &amp; Identity",    ratio:"p",    type:"img",
-    src:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-01-scaled.jpg" },
-  { b:"Lewis",              t:"Brand &amp; Digital",     ratio:"p",    type:"video",
-    src:"https://www.moresleep.net/wp-content/uploads/2024/09/241016_Homepage-Scroll.mp4",
+  { b:"Dauphin",            t:"Go-to-Market",
+    type:"img", src:"https://dacoql.wpenginepowered.com/wp-content/uploads/2026/01/averio-PLP_main.jpg" },
+  { b:"Vitra",              t:"Brand Strategy",          type:"carousel" },
+  { b:"HAY",                t:"Creative Direction",
+    type:"img", src:"https://www.hay.com/globalassets/media/brandsite/hays-world/news/2018-milan-design-week/no-setup-milan-2018.jpg?w=1400" },
+  { b:"Sonos",              t:"Brand & Content",
+    type:"img", src:"https://media.sonos.com/images/znqtjj88/production/12bfad13c968850e7b5795545773ce893fede974-2440x2440.jpg?w=1080&q=100&fit=clip&auto=format" },
+  { b:"NZZ",                t:"Brand & Digital",
+    type:"img", src:"https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png" },
+  { b:"Architonic",         t:"Platform Strategy",
+    type:"img", src:"https://media.architonic.com/system-on/homer/architonic.jpg?width=1256&height=862&fit=inside&crop=true&format=webp" },
+  { b:"Frederik G. Pferdt", t:"Brand & Identity",
+    type:"video", src:"https://www.moresleep.net/wp-content/uploads/2024/11/Frederik-Pferdt-Venue-Screen-Video.mp4",
+    poster:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-01-scaled.jpg" },
+  { b:"Lewis",              t:"Brand & Digital",
+    type:"video", src:"https://lewisgroupofcompanies.com/wp-content/uploads/2023/08/Home_header-final.mp4",
     poster:"https://www.moresleep.net/wp-content/uploads/2024/09/Lewis-Billboard_Nature-Mockup-1024x683.jpg" },
-  { b:"USM",                t:"Digital Transformation",  ratio:"full", type:"img",
-    src:"https://www.moresleep.net/wp-content/uploads/2018/01/Freunde-von-Freunden-Ricarda-Messner-1868-801x1200-1.jpg" },
-  { b:"Thonet",             t:"Brand Narrative",         ratio:"p",    type:"img",
-    src:"https://www.thonet.de/fileadmin/media/07-magazine/reference/Solo_Houses/thonet-solo-house-533px_02.jpg" },
-  { b:"Friends of Friends", t:"Publication &amp; Brand", ratio:"p",    type:"img",
-    src:"https://www.moresleep.net/wp-content/uploads/2021/02/FF-Personalities.gif" },
-  // Placeholder entries for brands without confirmed images
-  { b:"&amp;Tradition",     t:"Creative Direction",      ratio:"p",    type:"placeholder" },
-  { b:"Tylko",              t:"Digital",                 ratio:"p",    type:"placeholder" },
-  { b:"Pernod Ricard",      t:"Hospitality &amp; Brand", ratio:"full", type:"img",
-    src:"https://www.moresleep.net/wp-content/uploads/2021/12/Header-Image-HP-1024x565.jpg" },
-  { b:"Ruinart",            t:"Brand &amp; Content",     ratio:"p",    type:"placeholder" },
-  { b:"BMW",                t:"Creative Direction",      ratio:"p",    type:"placeholder" },
-  { b:"Ritz Carlton",       t:"Hospitality &amp; Brand", ratio:"p",    type:"placeholder" },
+  { b:"LAS Art Foundation", t:"Branding & Motion",
+    type:"video", src:"https://cdn.prod.website-files.com/65c5074d380afa8c0d0482af/65dc782cb4e5798707ac738e_LAS Digital Posters Final Animation-transcode.mp4", poster:"" },
+  { b:"USM",                t:"Digital Transformation", type:"vimeo", src:"1048609984" },
+  { b:"Thonet",             t:"Brand Narrative",
+    type:"img", src:"https://www.thonet.de/fileadmin/media/07-magazine/reference/Solo_Houses/thonet-solo-house-533px_02.jpg" },
+  { b:"Friends of Friends", t:"Publication & Brand",
+    type:"img", src:"https://www.moresleep.net/wp-content/uploads/2021/02/FF-Personalities.gif" },
+  { b:"Pernod Ricard",      t:"Hospitality & Brand",
+    type:"img", src:"https://www.moresleep.net/wp-content/uploads/2021/12/Header-Image-HP-1024x565.jpg" },
+  { b:"&Tradition",         t:"Creative Direction",      type:"placeholder" },
+  { b:"Tylko",              t:"Digital",                 type:"placeholder" },
+  { b:"Ruinart",            t:"Brand & Content",         type:"placeholder" },
+  { b:"BMW",                t:"Creative Direction",      type:"placeholder" },
+  { b:"Ritz Carlton",       t:"Hospitality & Brand",     type:"placeholder" },
 ];
 
-document.getElementById('proj-count').textContent = projects.length + ' projects';
-
 const G = document.getElementById('work-grid');
+let i = 0, rowIdx = 0;
 
-projects.forEach((p, idx) => {
-  const a = document.createElement('a');
-  const cls = p.ratio === 'full' ? 'full' : p.ratio;
-  a.className = 'ci ' + cls;
-  a.href = '/miad-studio/work.html';
+while (i < projects.length) {
+  const cols = (rowIdx % 2 === 0) ? 2 : 3;
+  const row = projects.slice(i, i + cols);
+  i += cols;
+  rowIdx++;
 
-  let media = '';
+  const rowDiv = document.createElement('div');
+  rowDiv.style.cssText = `display:grid;grid-template-columns:repeat(${cols},1fr);gap:1px;background:var(--border);margin-bottom:1px;`;
 
-  if (p.type === 'carousel') {
-    media = `<div class="carousel-wrap" style="aspect-ratio:16/9;width:100%;">
-      <div class="carousel-track" id="ct-${idx}" style="height:100%;">
-        ${VITRA_IMGS.map(img => `<img src="${img}" alt="Vitra" loading="lazy" style="min-width:100%;height:100%;object-fit:cover;" />`).join('')}
-      </div>
-      <button class="carousel-btn prev" onclick="slide(event,'${idx}',-1)">&#8592;</button>
-      <button class="carousel-btn next" onclick="slide(event,'${idx}',1)">&#8594;</button>
-      <div class="carousel-dots" id="cd-${idx}">
-        ${VITRA_IMGS.map((_,i) => `<div class="dot${i===0?' active':''}" onclick="goTo(event,'${idx}',${i})"></div>`).join('')}
-      </div>
-    </div>`;
+  row.forEach(p => {
+    const a = document.createElement('a');
+    a.className = 'ci';
+    a.href = '#';
+    const ar = cols === 2 ? '4/5' : '5/4';
+    const id = p.b.replace(/[^a-z0-9]/gi,'');
+    let media = '';
+
+    if (p.type === 'carousel') {
+      media = `<div style="position:relative;overflow:hidden;aspect-ratio:${ar};width:100%;">
+        <div id="ct${id}" style="display:flex;height:100%;transition:transform 0.5s ease;">
+          ${VITRA_IMGS.map(img=>`<img src="${img}" alt="Vitra" style="min-width:100%;height:100%;object-fit:cover;flex-shrink:0;"/>`).join('')}
+        </div>
+        <button class="carousel-btn prev" onclick="slide(event,'${id}',-1)">&#8592;</button>
+        <button class="carousel-btn next" onclick="slide(event,'${id}',1)">&#8594;</button>
+        <div class="carousel-dots" id="cd${id}">
+          ${VITRA_IMGS.map((_,n)=>`<div class="dot${n===0?' active':''}" onclick="goTo(event,'${id}',${n})"></div>`).join('')}
+        </div>
+      </div>`;
+    } else if (p.type === 'placeholder') {
+      media = `<div style="aspect-ratio:${ar};display:flex;align-items:center;justify-content:center;background:#e8e4e0;"><span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-light);">${p.b}</span></div>`;
+    } else if (p.type === 'video') {
+      media = `<div style="aspect-ratio:${ar};overflow:hidden;"><video autoplay muted loop playsinline poster="${p.poster||''}" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="${p.src}" type="video/mp4"></video></div>`;
+    } else if (p.type === 'vimeo') {
+      media = `<div style="aspect-ratio:${ar};overflow:hidden;position:relative;"><iframe src="https://player.vimeo.com/video/${p.src}?autoplay=1&muted=1&loop=1&background=1&autopause=0" frameborder="0" allow="autoplay;fullscreen" style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe></div>`;
+    } else {
+      media = `<div style="aspect-ratio:${ar};overflow:hidden;"><img src="${p.src}" alt="${p.b}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.style.background='#e4e0db';this.style.display='none'"/></div>`;
+    }
+
     a.innerHTML = media + `<div class="cm"><span class="cb">${p.b}</span><span class="ct">${p.t}</span></div>`;
-    G.appendChild(a);
-    return;
-  }
+    rowDiv.appendChild(a);
+  });
 
-  if (p.type === 'placeholder') {
-    media = `<div class="ciw"><div class="placeholder"><span>${p.b}</span></div></div>`;
-  } else if (p.type === 'video') {
-    media = `<div class="ciw"><video autoplay muted loop playsinline poster="${p.poster||''}" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="${p.src}" type="video/mp4"></video></div>`;
-  } else {
-    media = `<div class="ciw"><img src="${p.src}" alt="${p.b}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=placeholder><span>${p.b}</span></div>'" /></div>`;
-  }
+  G.appendChild(rowDiv);
+}
 
-  a.innerHTML = media + `<div class="cm"><span class="cb">${p.b}</span><span class="ct">${p.t}</span></div>`;
-  G.appendChild(a);
-});
-
-// Carousel logic
+// Carousel
 const carouselState = {};
-function slide(e, id, dir) {
-  e.preventDefault();
-  const imgs = VITRA_IMGS.length;
-  if (!carouselState[id]) carouselState[id] = 0;
-  carouselState[id] = (carouselState[id] + dir + imgs) % imgs;
-  updateCarousel(id);
-}
-function goTo(e, id, i) {
-  e.preventDefault();
-  carouselState[id] = i;
-  updateCarousel(id);
-}
-function updateCarousel(id) {
-  const track = document.getElementById('ct-' + id);
-  const dots = document.getElementById('cd-' + id);
-  const i = carouselState[id] || 0;
-  track.style.transform = `translateX(-${i * 100}%)`;
-  dots.querySelectorAll('.dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
-}
+function slide(e,id,dir){e.preventDefault();const n=VITRA_IMGS.length;carouselState[id]=(( carouselState[id]||0)+dir+n)%n;updateCarousel(id);}
+function goTo(e,id,i){e.preventDefault();carouselState[id]=i;updateCarousel(id);}
+function updateCarousel(id){const t=document.getElementById('ct'+id);const d=document.getElementById('cd'+id);const i=carouselState[id]||0;t.style.transform=`translateX(-${i*100}%)`;d.querySelectorAll('.dot').forEach((dot,idx)=>dot.classList.toggle('active',idx===i));}
 </script>
 </body>
 </html>
