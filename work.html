@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MIAD — Work</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --grey-dark:#4a4540; --grey-mid:#7a7470; --grey-light:#a8a39f; --border:#c8c3be; --bg:#fff; }
+body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(--bg); color:var(--grey-dark); }
+
+.nav { display:flex; justify-content:space-between; align-items:center; padding:18px 24px; border-bottom:1px solid var(--border); }
+.nav-logo { font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--grey-dark); text-decoration:none; }
+.nav-links { display:flex; gap:28px; list-style:none; }
+.nav-links a { font-size:12px; font-weight:400; color:var(--grey-mid); text-decoration:none; }
+.nav-links a:hover, .nav-links a.active { color:var(--grey-dark); }
+
+.page-header { padding:48px 24px 40px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:flex-end; }
+.page-title { font-size:clamp(40px,7vw,80px); font-weight:700; line-height:0.95; letter-spacing:-0.03em; color:var(--grey-dark); }
+.page-desc { font-size:13px; color:var(--grey-mid); max-width:300px; line-height:1.65; text-align:right; }
+
+.section-header { display:flex; justify-content:space-between; align-items:center; padding:14px 24px; border-bottom:1px solid var(--border); border-top:1px solid var(--border); }
+.section-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-mid); }
+.section-count { font-size:11px; color:var(--grey-light); }
+
+/* GRID */
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); }
+.ci { background:var(--bg); display:block; text-decoration:none; overflow:hidden; cursor:pointer; }
+.ciw { width:100%; overflow:hidden; background:#ede9e5; position:relative; }
+.ciw img, .ciw video { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
+.ci:hover .ciw img, .ci:hover .ciw video { transform:scale(1.03); }
+.ci.p .ciw { aspect-ratio:4/5; }
+.ci.l .ciw { aspect-ratio:5/4; }
+.ci.sq .ciw { aspect-ratio:1/1; }
+.ci.full { grid-column:1/-1; }
+.ci.full .ciw { aspect-ratio:21/8; }
+.cm { padding:13px 24px 20px; display:flex; justify-content:space-between; align-items:baseline; }
+.cb { font-size:12px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--grey-dark); }
+.ct { font-size:11px; color:var(--grey-light); }
+
+/* PLACEHOLDER */
+.placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#e8e4e0; }
+.placeholder span { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey-light); }
+
+/* VITRA CAROUSEL */
+.carousel-wrap { position:relative; width:100%; overflow:hidden; }
+.carousel-track { display:flex; transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); }
+.carousel-track img { width:100%; flex-shrink:0; height:100%; object-fit:cover; display:block; }
+.carousel-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.85); border:none; cursor:pointer; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--grey-dark); z-index:2; transition:background 0.15s; }
+.carousel-btn:hover { background:#fff; }
+.carousel-btn.prev { left:12px; }
+.carousel-btn.next { right:12px; }
+.carousel-dots { position:absolute; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:6px; }
+.dot { width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,0.5); cursor:pointer; transition:background 0.2s; }
+.dot.active { background:#fff; }
+
+/* FOOTER */
+.footer { display:grid; grid-template-columns:1fr 1fr 1fr; border-top:1px solid var(--border); }
+.footer-col { padding:32px 24px; border-right:1px solid var(--border); }
+.footer-col:last-child { border-right:none; }
+.footer-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-light); margin-bottom:12px; }
+.footer-val { font-size:13px; color:var(--grey-mid); line-height:1.7; }
+.footer-val a { color:var(--grey-mid); text-decoration:none; }
+.footer-val a:hover { color:var(--grey-dark); }
+.footer-bottom { padding:20px 24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; }
+.footer-copy { font-size:11px; color:var(--grey-light); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="miad_index.html">MIAD</a>
+  <ul class="nav-links">
+    <li><a href="miad_work.html" class="active">Work</a></li>
+    <li><a href="miad_about.html">About</a></li>
+    <li><a href="miad_about.html#services">Services</a></li>
+    <li><a href="miad_about.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <h1 class="page-title">Work</h1>
+  <p class="page-desc">Selected projects across brand strategy, creative direction, AI integration, and digital transformation.</p>
+</div>
+
+<div>
+  <div class="section-header">
+    <span class="section-label">All Projects</span>
+    <span class="section-count" id="proj-count"></span>
+  </div>
+  <div class="grid" id="work-grid"></div>
+</div>
+
+<div class="footer">
+  <div class="footer-col">
+    <div class="footer-label">Location</div>
+    <div class="footer-val">Berlin, DE<br>New York, US</div>
+  </div>
+  <div class="footer-col">
+    <div class="footer-label">Inquire</div>
+    <div class="footer-val"><a href="mailto:hello@miad.studio">hello@miad.studio</a></div>
+  </div>
+  <div class="footer-col">
+    <div class="footer-label">Navigation</div>
+    <div class="footer-val">
+      <a href="miad_work.html">Work</a><br>
+      <a href="miad_about.html">About</a><br>
+      <a href="miad_about.html#contact">Contact</a>
+    </div>
+  </div>
+</div>
+<div class="footer-bottom">
+  <span class="footer-copy">© 2026 MIAD</span>
+  <span class="footer-copy">Merging Intelligence &amp; Design</span>
+</div>
+
+<script>
+// All projects — landscape = full width, portrait = half width
+// Vitra = carousel (full width)
+const VITRA_IMGS = [
+  "https://static.vitra.com/media/asset/979518/storage/v_fullbleed_1440x/15702284.jpg",
+  "https://static.vitra.com/media/asset/732547/storage/v_fullbleed_1440x/09055959.jpg",
+  "https://static.vitra.com/media/asset/2492031/storage/v_fullbleed_1440x/36836346.jpg",
+  "https://static.vitra.com/media/asset/1685925/storage/v_fullbleed_1440x/21005339.jpg",
+  "https://static.vitra.com/media/asset/1553003/storage/v_fullbleed_1440x/16993902.jpg",
+  "https://static.vitra.com/products/41218500/LCH_41218500.LCH_MAS_01=02;LCH_41218500.LCH_VAN_01=05;LCH_41218500.LCH_COV_01=0075;LCH_41218500.BZF_LPF_01=66;LCH_41218500.LCH_BAS_01=02;LCH_41218500.LCH_BAS_ON_01=05;LCH_41218500.WPROMO_25_LCH=01;LCH_41218500.ZV99999_CHR_PAC01=K001.png"
+];
+
+const projects = [
+  // Landscape = full width
+  { b:"Louis Vuitton",      t:"Employer Branding",      ratio:"p",    type:"video",
+    src:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton/v2_lv_graded_render_h264-Original_Sub_02_2.mp4",
+    poster:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton-a-global-employer-branding-campaign-and-extended-work-culture-documentary/Friends-of-Friends-LV-WorkshopsCreation-0392.jpg" },
+  { b:"Dauphin",            t:"Go-to-Market",            ratio:"p",    type:"img",
+    src:"https://dacoql.wpenginepowered.com/wp-content/uploads/2026/01/averio-PLP_main.jpg" },
+  { b:"Vitra",              t:"Brand Strategy",          ratio:"full", type:"carousel" },
+  { b:"HAY",                t:"Creative Direction",      ratio:"full", type:"img",
+    src:"https://www.hay.com/globalassets/media/brandsite/hays-world/news/2018-milan-design-week/no-setup-milan-2018.jpg?w=1400" },
+  { b:"Sonos",              t:"Brand &amp; Content",     ratio:"sq",   type:"img",
+    src:"https://media.sonos.com/images/znqtjj88/production/12bfad13c968850e7b5795545773ce893fede974-2440x2440.jpg?w=1080&q=100&fit=clip&auto=format" },
+  { b:"NZZ",                t:"Brand &amp; Digital",     ratio:"p",    type:"img",
+    src:"https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png" },
+  { b:"Architonic",         t:"Platform Strategy",       ratio:"full", type:"img",
+    src:"https://media.architonic.com/system-on/homer/architonic.jpg?width=1256&height=862&fit=inside&crop=true&format=webp" },
+  { b:"Frederik G. Pferdt", t:"Brand &amp; Identity",    ratio:"p",    type:"img",
+    src:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-01-scaled.jpg" },
+  { b:"Lewis",              t:"Brand &amp; Digital",     ratio:"p",    type:"video",
+    src:"https://www.moresleep.net/wp-content/uploads/2024/09/241016_Homepage-Scroll.mp4",
+    poster:"https://www.moresleep.net/wp-content/uploads/2024/09/Lewis-Billboard_Nature-Mockup-1024x683.jpg" },
+  { b:"USM",                t:"Digital Transformation",  ratio:"full", type:"img",
+    src:"https://www.moresleep.net/wp-content/uploads/2018/01/Freunde-von-Freunden-Ricarda-Messner-1868-801x1200-1.jpg" },
+  { b:"Thonet",             t:"Brand Narrative",         ratio:"p",    type:"img",
+    src:"https://www.thonet.de/fileadmin/media/07-magazine/reference/Solo_Houses/thonet-solo-house-533px_02.jpg" },
+  { b:"Friends of Friends", t:"Publication &amp; Brand", ratio:"p",    type:"img",
+    src:"https://www.moresleep.net/wp-content/uploads/2021/02/FF-Personalities.gif" },
+  // Placeholder entries for brands without confirmed images
+  { b:"e15",                t:"Brand Strategy",          ratio:"p",    type:"placeholder" },
+  { b:"&amp;Tradition",     t:"Creative Direction",      ratio:"p",    type:"placeholder" },
+  { b:"Tylko",              t:"Digital",                 ratio:"p",    type:"placeholder" },
+  { b:"Pernod Ricard",      t:"Hospitality &amp; Brand", ratio:"full", type:"img",
+    src:"https://www.moresleep.net/wp-content/uploads/2021/12/Header-Image-HP-1024x565.jpg" },
+  { b:"Ruinart",            t:"Brand &amp; Content",     ratio:"p",    type:"placeholder" },
+  { b:"BMW",                t:"Creative Direction",      ratio:"p",    type:"placeholder" },
+  { b:"Ritz Carlton",       t:"Hospitality &amp; Brand", ratio:"p",    type:"placeholder" },
+];
+
+document.getElementById('proj-count').textContent = projects.length + ' projects';
+
+const G = document.getElementById('work-grid');
+
+projects.forEach((p, idx) => {
+  const a = document.createElement('a');
+  const cls = p.ratio === 'full' ? 'full' : p.ratio;
+  a.className = 'ci ' + cls;
+  a.href = '#';
+
+  let media = '';
+
+  if (p.type === 'carousel') {
+    media = `<div class="carousel-wrap" style="aspect-ratio:21/8;width:100%;">
+      <div class="carousel-track" id="ct-${idx}" style="height:100%;">
+        ${VITRA_IMGS.map(img => `<img src="${img}" alt="Vitra" loading="lazy" style="min-width:100%;height:100%;object-fit:cover;" />`).join('')}
+      </div>
+      <button class="carousel-btn prev" onclick="slide(event,'${idx}',-1)">&#8592;</button>
+      <button class="carousel-btn next" onclick="slide(event,'${idx}',1)">&#8594;</button>
+      <div class="carousel-dots" id="cd-${idx}">
+        ${VITRA_IMGS.map((_,i) => `<div class="dot${i===0?' active':''}" onclick="goTo(event,'${idx}',${i})"></div>`).join('')}
+      </div>
+    </div>`;
+    a.innerHTML = media + `<div class="cm"><span class="cb">${p.b}</span><span class="ct">${p.t}</span></div>`;
+    G.appendChild(a);
+    return;
+  }
+
+  if (p.type === 'placeholder') {
+    media = `<div class="ciw"><div class="placeholder"><span>${p.b}</span></div></div>`;
+  } else if (p.type === 'video') {
+    media = `<div class="ciw"><video autoplay muted loop playsinline poster="${p.poster||''}" style="width:100%;height:100%;object-fit:cover;display:block;"><source src="${p.src}" type="video/mp4"></video></div>`;
+  } else {
+    media = `<div class="ciw"><img src="${p.src}" alt="${p.b}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=placeholder><span>${p.b}</span></div>'" /></div>`;
+  }
+
+  a.innerHTML = media + `<div class="cm"><span class="cb">${p.b}</span><span class="ct">${p.t}</span></div>`;
+  G.appendChild(a);
+});
+
+// Carousel logic
+const carouselState = {};
+function slide(e, id, dir) {
+  e.preventDefault();
+  const imgs = VITRA_IMGS.length;
+  if (!carouselState[id]) carouselState[id] = 0;
+  carouselState[id] = (carouselState[id] + dir + imgs) % imgs;
+  updateCarousel(id);
+}
+function goTo(e, id, i) {
+  e.preventDefault();
+  carouselState[id] = i;
+  updateCarousel(id);
+}
+function updateCarousel(id) {
+  const track = document.getElementById('ct-' + id);
+  const dots = document.getElementById('cd-' + id);
+  const i = carouselState[id] || 0;
+  track.style.transform = `translateX(-${i * 100}%)`;
+  dots.querySelectorAll('.dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
+}
+</script>
+</body>
+</html>
