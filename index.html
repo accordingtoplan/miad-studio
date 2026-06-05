@@ -16,46 +16,168 @@ html { scroll-behavior: smooth; }
 }
 body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: var(--bg); color: var(--grey-dark); }
 
-.nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-bottom: 1px solid var(--border); }
+/* NAV — Alright style: logo left, descriptor center-left, links right, all one line */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+}
+.nav-left { display: flex; align-items: center; gap: 32px; }
 .nav-logo { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--grey-dark); text-decoration: none; }
-.nav-links { display: flex; gap: 28px; list-style: none; }
-.nav-links a { font-size: 12px; font-weight: 400; color: var(--grey-mid); text-decoration: none; letter-spacing: 0.01em; }
+.nav-descriptor { font-size: 12px; color: var(--grey-light); letter-spacing: 0.01em; }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { font-size: 12px; font-weight: 400; color: var(--grey-mid); text-decoration: none; }
 .nav-links a:hover { color: var(--grey-dark); }
 
-.hero { padding: 56px 24px 48px; border-bottom: 1px solid var(--border); }
-.hero-headline { font-size: clamp(64px, 11vw, 130px); font-weight: 700; line-height: 0.91; letter-spacing: -0.03em; color: var(--grey-dark); margin-bottom: 44px; }
+/* HERO */
+.hero {
+  padding: 56px 24px 48px;
+  border-bottom: 1px solid var(--border);
+}
+.hero-headline {
+  font-size: clamp(56px, 10vw, 120px);
+  font-weight: 700;
+  line-height: 0.91;
+  letter-spacing: -0.03em;
+  color: var(--grey-dark);
+  margin-bottom: 44px;
+}
 .hero-sub { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; }
-.hero-desc { font-size: 14px; font-weight: 400; line-height: 1.65; max-width: 420px; color: var(--grey-mid); }
-.hero-cta { display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
-
-.btn-p { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; display: inline-flex; align-items: center; font-size: 14px; font-weight: 400; color: #fff; background: var(--grey-dark); border-radius: 980px; padding: 11px 24px; text-decoration: none; border: 1px solid var(--grey-dark); cursor: pointer; line-height: 1.4; white-space: nowrap; transition: background 0.15s, border-color 0.15s; }
+.hero-desc { font-size: 14px; line-height: 1.65; max-width: 420px; color: var(--grey-mid); }
+.hero-cta { display: flex; gap: 12px; flex-shrink: 0; }
+.btn-p { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; display: inline-flex; align-items: center; font-size: 14px; color: #fff; background: var(--grey-dark); border-radius: 980px; padding: 11px 24px; text-decoration: none; border: 1px solid var(--grey-dark); line-height: 1.4; white-space: nowrap; transition: background 0.15s; }
 .btn-p:hover { background: var(--grey-mid); border-color: var(--grey-mid); }
-.btn-s { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; display: inline-flex; align-items: center; font-size: 14px; font-weight: 400; color: var(--grey-dark); background: transparent; border-radius: 980px; border: 1px solid var(--border); padding: 11px 24px; text-decoration: none; cursor: pointer; line-height: 1.4; white-space: nowrap; transition: border-color 0.15s, color 0.15s; }
-.btn-s:hover { border-color: var(--grey-mid); color: var(--grey-mid); }
-.btn-s::after { content: ' ›'; font-size: 16px; line-height: 1; }
+.btn-s { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; display: inline-flex; align-items: center; font-size: 14px; color: var(--grey-dark); background: transparent; border-radius: 980px; border: 1px solid var(--border); padding: 11px 24px; text-decoration: none; line-height: 1.4; white-space: nowrap; transition: border-color 0.15s; }
+.btn-s:hover { border-color: var(--grey-mid); }
+.btn-s::after { content: ' ›'; }
 
-.section-header { display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; border-bottom: 1px solid var(--border); border-top: 1px solid var(--border); }
-.section-label { font-size: 11px; font-weight: 400; letter-spacing: 0.09em; text-transform: uppercase; color: var(--grey-mid); }
+/* CASE STUDIES HEADER */
+.section-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 13px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.section-label { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--grey-mid); }
 .section-count { font-size: 11px; color: var(--grey-light); }
 
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
-.ci { background: var(--bg); display: block; text-decoration: none; overflow: hidden; cursor: pointer; }
-.ciw { width: 100%; overflow: hidden; background: #ede9e5; }
-.ciw img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
-.ci:hover .ciw img { transform: scale(1.03); }
-.ci.p .ciw { aspect-ratio: 4/5; }
-.ci.l .ciw { aspect-ratio: 5/4; }
-.ci.full { grid-column: 1 / -1; }
-.ci.full .ciw { aspect-ratio: 21/8; }
-.ci.architonic .ciw { aspect-ratio: 8/5; }
-.cm { padding: 13px 24px 20px; display: flex; justify-content: space-between; align-items: baseline; }
-.cb { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--grey-dark); }
-.ct { font-size: 11px; color: var(--grey-light); }
+/* ALRIGHT-STYLE PROJECT ROWS */
+.project-row {
+  display: block;
+  text-decoration: none;
+  color: var(--grey-dark);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  overflow: hidden;
+}
+.project-row:hover .project-media img,
+.project-row:hover .project-media video {
+  transform: scale(1.02);
+}
 
+/* Landscape: full bleed */
+.project-row.landscape .project-media {
+  width: 100%;
+  overflow: hidden;
+}
+.project-row.landscape .project-media img,
+.project-row.landscape .project-media video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+/* Portrait: centered, natural size, white space either side — Alright style */
+.project-row.portrait .project-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+.project-row.portrait .project-media img {
+  /* max 60% width so portrait images stay portrait with white space */
+  width: 60%;
+  max-width: 700px;
+  display: block;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+/* Square: centered like portrait */
+.project-row.square .project-media {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  overflow: hidden;
+}
+.project-row.square .project-media img {
+  width: 60%;
+  max-width: 700px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+/* Video landscape */
+.project-row.landscape .project-media video {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.project-row.portrait .project-media video {
+  width: 60%;
+  max-width: 700px;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+/* Meta row below each image */
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 13px 24px 18px;
+}
+.project-brand { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--grey-dark); }
+.project-type  { font-size: 11px; color: var(--grey-light); }
+
+/* SHORT ABOUT */
+.about-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--border);
+}
+.about-col { padding: 56px 24px 64px; }
+.about-col:first-child { border-right: 1px solid var(--border); }
+.about-label { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--grey-light); margin-bottom: 28px; }
+.about-headline { font-size: clamp(24px, 3.5vw, 44px); font-weight: 700; line-height: 1.02; letter-spacing: -0.02em; color: var(--grey-dark); margin-bottom: 24px; }
+.about-text { font-size: 14px; line-height: 1.7; color: var(--grey-mid); margin-bottom: 16px; }
+.founder { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+.founder:first-of-type { border-top: 1px solid var(--border); margin-top: 8px; }
+.founder-name { font-size: 13px; font-weight: 700; color: var(--grey-dark); margin-bottom: 5px; }
+.founder-role { font-size: 12px; color: var(--grey-mid); line-height: 1.5; }
+.founder-num  { font-size: 11px; color: var(--grey-light); padding-top: 2px; }
+
+/* FOOTER */
 .footer { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid var(--border); }
 .footer-col { padding: 32px 24px; border-right: 1px solid var(--border); }
 .footer-col:last-child { border-right: none; }
-.footer-label { font-size: 11px; font-weight: 400; letter-spacing: 0.09em; text-transform: uppercase; color: var(--grey-light); margin-bottom: 12px; }
+.footer-label { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--grey-light); margin-bottom: 12px; }
 .footer-val { font-size: 13px; color: var(--grey-mid); line-height: 1.7; }
 .footer-val a { color: var(--grey-mid); text-decoration: none; }
 .footer-val a:hover { color: var(--grey-dark); }
@@ -65,16 +187,20 @@ body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: 
 </head>
 <body>
 
+<!-- NAV -->
 <nav class="nav">
-  <a class="nav-logo" href="/miad-studio/">MIAD</a>
+  <div class="nav-left">
+    <a class="nav-logo" href="/miad-studio/">MIAD</a>
+    <span class="nav-descriptor">Merging Intelligence &amp; Design</span>
+  </div>
   <ul class="nav-links">
     <li><a href="/miad-studio/work.html">Work</a></li>
     <li><a href="/miad-studio/about.html">About</a></li>
-    <li><a href="/miad-studio/about.html#services">Services</a></li>
     <li><a href="/miad-studio/about.html#contact">Contact</a></li>
   </ul>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
   <h1 class="hero-headline">Merging<br>Intelligence<br>&amp; Design.</h1>
   <div class="hero-sub">
@@ -86,43 +212,42 @@ body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: 
   </div>
 </div>
 
+<!-- CASE STUDIES -->
 <div>
   <div class="section-header">
     <span class="section-label">Case Studies</span>
     <span class="section-count">8 projects</span>
   </div>
-  <div class="grid" id="case-grid"></div>
+  <div id="projects"></div>
 </div>
 
-
-<!-- SHORT ABOUT — homepage -->
-<div style="display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);">
-  <div style="padding:56px 24px 64px;border-right:1px solid var(--border);">
-    <div style="font-size:11px;font-weight:400;letter-spacing:0.09em;text-transform:uppercase;color:var(--grey-light);margin-bottom:28px;">About</div>
-    <h2 style="font-size:clamp(28px,4vw,48px);font-weight:700;line-height:1.02;letter-spacing:-0.025em;color:var(--grey-dark);margin-bottom:24px;">Where sector knowledge meets design intelligence.</h2>
-    <p style="font-size:14px;font-weight:400;line-height:1.7;color:var(--grey-mid);margin-bottom:12px;">MIAD works at the intersection of AI strategy and creative direction for Architecture &amp; Design brands. We bring deep industry fluency — not generic AI consulting.</p>
-    <p style="font-size:14px;font-weight:400;line-height:1.7;color:var(--grey-mid);">Our work spans brand strategy, creative direction, digital transformation, and AI integration. We understand the material culture of the industry, the pace of its cycles, and the relationships that move it.</p>
+<!-- SHORT ABOUT -->
+<div class="about-strip">
+  <div class="about-col">
+    <div class="about-label">About</div>
+    <h2 class="about-headline">Where sector knowledge meets design intelligence.</h2>
+    <p class="about-text">MIAD works at the intersection of AI strategy and creative direction for Architecture &amp; Design brands. We bring deep industry fluency — not generic AI consulting.</p>
+    <p class="about-text">Our work spans brand strategy, creative direction, digital transformation, and AI integration. We understand the material culture of the industry, the pace of its cycles, and the relationships that move it.</p>
   </div>
-  <div style="padding:56px 24px 64px;">
-    <div style="border-top:1px solid var(--border);">
-      <div style="display:grid;grid-template-columns:1fr auto;gap:16px;padding:24px 0;border-bottom:1px solid var(--border);">
-        <div>
-          <div style="font-size:13px;font-weight:700;color:var(--grey-dark);margin-bottom:6px;letter-spacing:0.01em;">Frederik Frede</div>
-          <div style="font-size:12px;color:var(--grey-mid);line-height:1.5;">Co-Founder — Creative Director<br>Vitra, USM, HAY, &amp;Tradition, Architonic,<br>Thonet, Louis Vuitton, Sonos, Pernod Ricard</div>
-        </div>
-        <div style="font-size:11px;color:var(--grey-light);letter-spacing:0.04em;padding-top:2px;">01</div>
+  <div class="about-col">
+    <div class="founder">
+      <div>
+        <div class="founder-name">Frederik Frede</div>
+        <div class="founder-role">Co-Founder — Creative Director<br>Vitra, USM, HAY, &amp;Tradition, Architonic,<br>Thonet, Louis Vuitton, Sonos, Pernod Ricard</div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr auto;gap:16px;padding:24px 0;border-bottom:1px solid var(--border);">
-        <div>
-          <div style="font-size:13px;font-weight:700;color:var(--grey-dark);margin-bottom:6px;letter-spacing:0.01em;">Chuck Heckman</div>
-          <div style="font-size:12px;color:var(--grey-mid);line-height:1.5;">Co-Founder — CMO, Dauphin<br>Matter Surfaces, Publicis, OneBillion!</div>
-        </div>
-        <div style="font-size:11px;color:var(--grey-light);letter-spacing:0.04em;padding-top:2px;">02</div>
+      <div class="founder-num">01</div>
+    </div>
+    <div class="founder">
+      <div>
+        <div class="founder-name">Chuck Heckman</div>
+        <div class="founder-role">Co-Founder — CMO, Dauphin<br>Matter Surfaces, Publicis, OneBillion!</div>
       </div>
+      <div class="founder-num">02</div>
     </div>
   </div>
 </div>
 
+<!-- FOOTER -->
 <div class="footer">
   <div class="footer-col">
     <div class="footer-label">Location</div>
@@ -147,43 +272,51 @@ body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: 
 </div>
 
 <script>
-const cases = [
-  // Row 1: Louis Vuitton + Dauphin portrait side by side
-  { b:"Louis Vuitton", t:"Employer Branding", type:"video", src:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton/v2_lv_graded_render_h264-Original_Sub_02_2.mp4", poster:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton-a-global-employer-branding-campaign-and-extended-work-culture-documentary/Friends-of-Friends-LV-WorkshopsCreation-0392.jpg", ratio:"p" },
-  { b:"Dauphin",   t:"Go-to-Market",          type:"img",   src:"https://dacoql.wpenginepowered.com/wp-content/uploads/2026/01/averio-PLP_main.jpg", ratio:"p" },
-  // Row 2: Architonic full width
-  { b:"Architonic",t:"Platform Strategy",     type:"img",   src:"https://media.architonic.com/system-on/homer/architonic.jpg?width=1256&height=862&fit=inside&crop=true&format=webp", full:true, cls:"architonic" },
-  // Row 3: Sonos + Vitra
-  { b:"Sonos",     t:"Brand &amp; Content",   type:"img",   src:"https://media.sonos.com/images/znqtjj88/production/12bfad13c968850e7b5795545773ce893fede974-2440x2440.jpg?w=1080&q=100&fit=clip&auto=format", ratio:"p" },
-  { b:"Vitra",     t:"Brand Strategy",        type:"img",   src:"https://static.vitra.com/products/41218500/LCH_41218500.LCH_MAS_01=02;LCH_41218500.LCH_VAN_01=05;LCH_41218500.LCH_COV_01=0075;LCH_41218500.BZF_LPF_01=66;LCH_41218500.LCH_BAS_01=02;LCH_41218500.LCH_BAS_ON_01=05;LCH_41218500.WPROMO_25_LCH=01;LCH_41218500.ZV99999_CHR_PAC01=K001.png", ratio:"p" },
-  // Row 4: Frederik G. Pferdt + Lewis (Lewis video)
-  { b:"Frederik G. Pferdt", t:"Brand &amp; Identity", type:"img", src:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-01-scaled.jpg", ratio:"p" },
-  { b:"Lewis",     t:"Brand &amp; Digital",   type:"video", src:"https://www.moresleep.net/wp-content/uploads/2024/09/241016_Homepage-Scroll.mp4", poster:"https://www.moresleep.net/wp-content/uploads/2024/09/Lewis-Billboard_Nature-Mockup-1024x683.jpg", ratio:"p" },
-  // Row 5: NZZ full width
-  { b:"NZZ",       t:"Brand &amp; Digital",   type:"img",   src:"https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png", full:true }
+const projects = [
+  // Portrait images: centered with white space either side
+  { b:"Louis Vuitton", t:"Employer Branding", orient:"landscape", type:"video",
+    src:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton/v2_lv_graded_render_h264-Original_Sub_02_2.mp4",
+    poster:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton-a-global-employer-branding-campaign-and-extended-work-culture-documentary/Friends-of-Friends-LV-WorkshopsCreation-0392.jpg" },
+  { b:"Dauphin",   t:"Go-to-Market",          orient:"landscape", type:"img",
+    src:"https://dacoql.wpenginepowered.com/wp-content/uploads/2026/01/averio-PLP_main.jpg" },
+  { b:"Architonic",t:"Platform Strategy",     orient:"landscape", type:"img",
+    src:"https://media.architonic.com/system-on/homer/architonic.jpg?width=1256&height=862&fit=inside&crop=true&format=webp" },
+  { b:"Sonos",     t:"Brand &amp; Content",   orient:"square",    type:"img",
+    src:"https://media.sonos.com/images/znqtjj88/production/12bfad13c968850e7b5795545773ce893fede974-2440x2440.jpg?w=1080&q=100&fit=clip&auto=format" },
+  { b:"Vitra",     t:"Brand Strategy",        orient:"portrait",  type:"img",
+    src:"https://static.vitra.com/products/41218500/LCH_41218500.LCH_MAS_01=02;LCH_41218500.LCH_VAN_01=05;LCH_41218500.LCH_COV_01=0075;LCH_41218500.BZF_LPF_01=66;LCH_41218500.LCH_BAS_01=02;LCH_41218500.LCH_BAS_ON_01=05;LCH_41218500.WPROMO_25_LCH=01;LCH_41218500.ZV99999_CHR_PAC01=K001.png" },
+  { b:"Frederik G. Pferdt", t:"Brand &amp; Identity", orient:"portrait", type:"img",
+    src:"https://www.moresleep.net/wp-content/uploads/2023/10/IG-FGP-01-scaled.jpg" },
+  { b:"Lewis",     t:"Brand &amp; Digital",   orient:"landscape", type:"video",
+    src:"https://www.moresleep.net/wp-content/uploads/2024/09/241016_Homepage-Scroll.mp4",
+    poster:"https://www.moresleep.net/wp-content/uploads/2024/09/Lewis-Billboard_Nature-Mockup-1024x683.jpg" },
+  { b:"NZZ",       t:"Brand &amp; Digital",   orient:"portrait",  type:"img",
+    src:"https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png" },
 ];
 
-const G = document.getElementById('case-grid');
-cases.forEach(p => {
+const container = document.getElementById('projects');
+projects.forEach(p => {
   const a = document.createElement('a');
-  a.className = 'ci ' + (p.cls ? p.cls : (p.full ? 'full' : p.ratio));
+  a.className = 'project-row ' + p.orient;
   a.href = '/miad-studio/work.html';
 
   let media = '';
   if (p.type === 'video') {
-    media = `<video autoplay muted loop playsinline poster="${p.poster}"
-      style="width:100%;height:100%;object-fit:cover;display:block;">
+    media = `<video autoplay muted loop playsinline poster="${p.poster||''}">
       <source src="${p.src}" type="video/mp4">
     </video>`;
   } else {
     media = `<img src="${p.src}" alt="${p.b}" loading="lazy"
-      onerror="this.parentElement.style.background='#e4e0db';this.style.display='none'"
-      style="width:100%;height:100%;object-fit:cover;display:block;" />`;
+      onerror="this.style.background='#e4e0db'" />`;
   }
 
-  a.innerHTML = `<div class="ciw">${media}</div>
-    <div class="cm"><span class="cb">${p.b}</span><span class="ct">${p.t}</span></div>`;
-  G.appendChild(a);
+  a.innerHTML = `
+    <div class="project-media">${media}</div>
+    <div class="project-meta">
+      <span class="project-brand">${p.b}</span>
+      <span class="project-type">${p.t}</span>
+    </div>`;
+  container.appendChild(a);
 });
 </script>
 </body>
