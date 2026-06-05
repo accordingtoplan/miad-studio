@@ -65,12 +65,12 @@ body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: 
 <body>
 
 <nav class="nav">
-  <a class="nav-logo" href="miad_index.html">MIAD</a>
+  <a class="nav-logo" href="index.html">MIAD</a>
   <ul class="nav-links">
-    <li><a href="miad_work.html">Work</a></li>
-    <li><a href="miad_about.html">About</a></li>
-    <li><a href="miad_about.html#services">Services</a></li>
-    <li><a href="miad_about.html#contact">Contact</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="about.html#services">Services</a></li>
+    <li><a href="about.html#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -79,8 +79,8 @@ body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: 
   <div class="hero-sub">
     <p class="hero-desc">AI strategy and creative direction for Architecture &amp; Design. Deep sector knowledge. No generalist answers.</p>
     <div class="hero-cta">
-      <a class="btn-p" href="miad_about.html#contact">Start a conversation</a>
-      <a class="btn-s" href="miad_work.html">See use cases</a>
+      <a class="btn-p" href="about.html#contact">Start a conversation</a>
+      <a class="btn-s" href="work.html">See use cases</a>
     </div>
   </div>
 </div>
@@ -134,9 +134,9 @@ body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: 
   <div class="footer-col">
     <div class="footer-label">Navigation</div>
     <div class="footer-val">
-      <a href="miad_work.html">Work</a><br>
-      <a href="miad_about.html">About</a><br>
-      <a href="miad_about.html#contact">Contact</a>
+      <a href="work.html">Work</a><br>
+      <a href="about.html">About</a><br>
+      <a href="about.html#contact">Contact</a>
     </div>
   </div>
 </div>
@@ -166,7 +166,7 @@ const G = document.getElementById('case-grid');
 cases.forEach(p => {
   const a = document.createElement('a');
   a.className = 'ci ' + (p.full ? 'full' : p.ratio);
-  a.href = 'miad_work.html';
+  a.href = 'work.html';
 
   let media = '';
   if (p.type === 'video') {
