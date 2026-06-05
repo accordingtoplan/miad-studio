@@ -113,6 +113,39 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
 .footer-links a { font-size:12px; color:var(--grey-mid); text-decoration:none; }
 .footer-links a:hover { color:var(--grey-dark); }
 
+/* ── MOBILE ──────────────────────────────────────────────── */
+@media (max-width: 640px) {
+
+  /* Nav — hide links, keep logo */
+  .nav { padding:14px 16px; }
+  .nav-links { display:none; }
+
+  /* Hero */
+  .hero { padding:32px 16px 36px; }
+  .hero-sub { flex-direction:column; align-items:flex-start; gap:24px; }
+  .hero-cta { flex-wrap:wrap; gap:10px; }
+
+  /* Portrait items: full width on mobile */
+  .project-item.portrait .img-wrap { width:80%; }
+  .project-item.portrait { padding:24px 0; }
+  .project-item.square .img-wrap { width:80%; }
+  .project-item.square { padding:20px 0; }
+
+  /* Project meta */
+  .project-meta { padding:10px 16px 14px; }
+
+  /* Section header */
+  .section-header { padding:12px 16px; }
+
+  /* About strip — stack columns */
+  .about-strip { grid-template-columns:1fr; }
+  .about-col { padding:36px 16px 40px; }
+
+  /* Footer */
+  .footer-bar { padding:16px 16px; }
+
+}
+
 </style>
 </head>
 <body>
