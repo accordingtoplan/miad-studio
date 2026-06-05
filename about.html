@@ -12,7 +12,7 @@ html { scroll-behavior: smooth; }
 body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(--bg); color:var(--grey-dark); }
 
 /* NAV */
-.nav { display:flex; justify-content:space-between; align-items:center; padding:16px 24px; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--bg); z-index:100; }
+.nav { display:flex; justify-content:space-between; align-items:center; padding:16px 24px; border-bottom:none; position:sticky; top:0; background:var(--bg); z-index:100; }
 .nav-left { display:flex; align-items:baseline; }
 .nav-logo { font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--grey-dark); text-decoration:none; }
 .nav-studio { font-size:13px; font-weight:400; color:var(--grey-mid); text-decoration:none; }
@@ -21,33 +21,33 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
 .nav-links a:hover, .nav-links a.active { color:var(--grey-dark); }
 
 /* PAGE */
-.page { max-width:900px; padding:64px 24px 96px; }
+.page { max-width:100%; padding:64px 24px 96px; }
 
 /* BIG HEADLINE — Alright style */
 .page-kicker { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-light); margin-bottom:24px; }
 .page-headline {
-  font-size:clamp(32px,5vw,60px);
+  font-size:clamp(42px,7vw,92px);
   font-weight:700;
-  line-height:1.05;
-  letter-spacing:-0.025em;
+  line-height:0.97;
+  letter-spacing:-0.03em;
   color:var(--grey-dark);
-  margin-bottom:40px;
-  max-width:720px;
+  margin-bottom:48px;
+  max-width:100%;
 }
 .page-body {
-  font-size:15px; font-weight:400; line-height:1.75;
-  color:var(--grey-mid); max-width:640px;
-  margin-bottom:20px;
+  font-size:clamp(17px,2vw,22px); font-weight:400; line-height:1.65;
+  color:var(--grey-mid); max-width:100%;
+  margin-bottom:28px;
 }
 
 /* SECTION BLOCKS — Alright lettered sections */
-.section { margin-top:64px; }
+.section { margin-top:96px; }
 .section-letter {
   font-size:11px; font-weight:700; letter-spacing:0.09em;
   text-transform:uppercase; color:var(--grey-light);
   margin-bottom:24px;
   padding-bottom:12px;
-  border-bottom:1px solid var(--border);
+  border-bottom:none;
 }
 
 /* Capabilities — two column tag list */
@@ -58,49 +58,49 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
 .cap-item {
   font-size:14px; color:var(--grey-mid);
   padding:10px 0;
-  border-bottom:1px solid var(--border);
+  border-bottom:none;
 }
 
 /* Services — label + description rows */
-.service-block { padding:20px 0; border-bottom:1px solid var(--border); }
-.service-block:first-child { border-top:1px solid var(--border); }
-.service-name { font-size:14px; font-weight:700; color:var(--grey-dark); margin-bottom:6px; }
-.service-desc { font-size:13px; color:var(--grey-mid); line-height:1.6; max-width:560px; }
+.service-block { padding:20px 0; border-bottom:none; }
+.service-block:first-child { border-top:none; }
+.service-name { font-size:clamp(20px,2.5vw,32px); font-weight:700; color:var(--grey-dark); margin-bottom:10px; letter-spacing:-0.015em; }
+.service-desc { font-size:clamp(15px,1.6vw,19px); color:var(--grey-mid); line-height:1.65; max-width:680px; }
 
 /* Approach — large text statements */
-.approach-item { padding:24px 0; border-bottom:1px solid var(--border); }
-.approach-item:first-child { border-top:1px solid var(--border); }
-.approach-title { font-size:clamp(16px,2.5vw,22px); font-weight:700; color:var(--grey-dark); margin-bottom:8px; letter-spacing:-0.01em; }
-.approach-desc { font-size:13px; color:var(--grey-mid); line-height:1.65; max-width:560px; }
+.approach-item { padding:24px 0; border-bottom:none; }
+.approach-item:first-child { border-top:none; }
+.approach-title { font-size:clamp(22px,3vw,40px); font-weight:700; color:var(--grey-dark); margin-bottom:12px; letter-spacing:-0.02em; }
+.approach-desc { font-size:clamp(15px,1.6vw,19px); color:var(--grey-mid); line-height:1.65; max-width:680px; }
 
 /* Contact */
 .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; }
-.contact-item { padding:16px 0; border-bottom:1px solid var(--border); }
-.contact-item:first-child { border-top:1px solid var(--border); }
+.contact-item { padding:16px 0; border-bottom:none; }
+.contact-item:first-child { border-top:none; }
 .contact-label { font-size:11px; font-weight:400; letter-spacing:0.07em; text-transform:uppercase; color:var(--grey-light); margin-bottom:6px; }
-.contact-val { font-size:13px; color:var(--grey-mid); line-height:1.6; }
+.contact-val { font-size:clamp(16px,1.8vw,22px); color:var(--grey-mid); line-height:1.6; }
 .contact-val a { color:var(--grey-mid); text-decoration:none; }
 .contact-val a:hover { color:var(--grey-dark); }
 
 /* Clients — flowing list */
 .client-list { columns:2; column-gap:24px; }
-.client-item { font-size:13px; color:var(--grey-mid); padding:6px 0; border-bottom:1px solid var(--border); break-inside:avoid; }
+.client-item { font-size:13px; color:var(--grey-mid); padding:6px 0; border-bottom:none; break-inside:avoid; }
 
 /* People */
-.people-item { display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--border); }
-.people-item:first-child { border-top:1px solid var(--border); }
-.people-name { font-size:13px; color:var(--grey-dark); }
-.people-role { font-size:13px; color:var(--grey-light); }
+.people-item { display:flex; justify-content:space-between; padding:12px 0; border-bottom:none; }
+.people-item:first-child { border-top:none; }
+.people-name { font-size:clamp(18px,2vw,26px); color:var(--grey-dark); font-weight:700; }
+.people-role { font-size:clamp(15px,1.6vw,20px); color:var(--grey-light); }
 
 /* FOOTER */
-.footer { display:grid; grid-template-columns:1fr 1fr 1fr; border-top:1px solid var(--border); }
+.footer { display:grid; grid-template-columns:1fr 1fr 1fr; border-top:none; }
 .footer-col { padding:32px 24px; border-right:1px solid var(--border); }
 .footer-col:last-child { border-right:none; }
 .footer-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-light); margin-bottom:12px; }
 .footer-val { font-size:13px; color:var(--grey-mid); line-height:1.7; }
 .footer-val a { color:var(--grey-mid); text-decoration:none; }
 .footer-val a:hover { color:var(--grey-dark); }
-.footer-bottom { padding:20px 24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; }
+.footer-bottom { padding:20px 24px; border-top:none; display:flex; justify-content:space-between; }
 .footer-copy { font-size:11px; color:var(--grey-light); }
 </style>
 </head>
