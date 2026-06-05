@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MIAD — About</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root { --grey-dark:#4a4540; --grey-mid:#7a7470; --grey-light:#a8a39f; --border:#c8c3be; --bg:#fff; }
+body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(--bg); color:var(--grey-dark); }
+
+.nav { display:flex; justify-content:space-between; align-items:center; padding:18px 24px; border-bottom:1px solid var(--border); }
+.nav-logo { font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--grey-dark); text-decoration:none; }
+.nav-links { display:flex; gap:28px; list-style:none; }
+.nav-links a { font-size:12px; font-weight:400; color:var(--grey-mid); text-decoration:none; letter-spacing:0.01em; }
+.nav-links a:hover, .nav-links a.active { color:var(--grey-dark); }
+
+.page-header { padding:48px 24px 40px; border-bottom:1px solid var(--border); }
+.page-title { font-size:clamp(40px,7vw,80px); font-weight:700; line-height:0.95; letter-spacing:-0.03em; color:var(--grey-dark); margin-bottom:24px; }
+.page-intro { font-size:16px; font-weight:400; line-height:1.7; max-width:580px; color:var(--grey-mid); }
+
+/* ABOUT BODY */
+.about-body {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border-bottom:1px solid var(--border);
+}
+.about-col { padding:56px 24px 64px; }
+.about-col:first-child { border-right:1px solid var(--border); }
+
+.about-section-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-light); margin-bottom:28px; }
+.about-headline { font-size:clamp(24px,3.5vw,40px); font-weight:700; line-height:1.05; letter-spacing:-0.02em; color:var(--grey-dark); margin-bottom:28px; }
+.about-text { font-size:14px; font-weight:400; line-height:1.75; color:var(--grey-mid); margin-bottom:20px; }
+
+/* FOUNDERS */
+.founders { margin-top:8px; }
+.founder { display:grid; grid-template-columns:auto 1fr; gap:20px; padding:24px 0; border-bottom:1px solid var(--border); align-items:start; }
+.founder:first-child { border-top:1px solid var(--border); }
+.founder-num { font-size:11px; color:var(--grey-light); letter-spacing:0.04em; padding-top:2px; }
+.founder-name { font-size:14px; font-weight:700; color:var(--grey-dark); margin-bottom:6px; letter-spacing:0.01em; }
+.founder-title { font-size:12px; color:var(--grey-mid); margin-bottom:10px; }
+.founder-credits { font-size:12px; color:var(--grey-light); line-height:1.6; }
+
+/* SERVICES */
+.services { border-bottom:1px solid var(--border); }
+.services-header { padding:14px 24px; border-bottom:1px solid var(--border); }
+.services-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-mid); }
+.service-row { display:flex; justify-content:space-between; align-items:center; padding:20px 24px; border-bottom:1px solid var(--border); cursor:pointer; transition:background 0.15s; }
+.service-row:hover { background:#faf9f7; }
+.service-name { font-size:16px; font-weight:400; color:var(--grey-dark); }
+.service-detail { font-size:12px; color:var(--grey-light); max-width:360px; text-align:right; line-height:1.5; }
+.service-arrow { font-size:12px; color:var(--grey-light); margin-left:24px; flex-shrink:0; }
+
+/* CONTACT */
+.contact { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--border); }
+.contact-left { padding:56px 24px; border-right:1px solid var(--border); }
+.contact-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-light); margin-bottom:28px; }
+.contact-headline { font-size:clamp(28px,4vw,48px); font-weight:700; line-height:1.0; letter-spacing:-0.025em; color:var(--grey-dark); margin-bottom:24px; }
+.contact-text { font-size:14px; color:var(--grey-mid); line-height:1.65; margin-bottom:32px; }
+
+.btn-p { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; display:inline-flex; align-items:center; font-size:14px; font-weight:400; color:#fff; background:var(--grey-dark); border-radius:980px; padding:11px 24px; text-decoration:none; border:1px solid var(--grey-dark); cursor:pointer; line-height:1.4; white-space:nowrap; transition:background 0.15s, border-color 0.15s; }
+.btn-p:hover { background:var(--grey-mid); border-color:var(--grey-mid); }
+
+.contact-right { padding:56px 24px; }
+.contact-detail { margin-bottom:32px; }
+.contact-detail-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-light); margin-bottom:8px; }
+.contact-detail-val { font-size:14px; color:var(--grey-mid); line-height:1.65; }
+.contact-detail-val a { color:var(--grey-mid); text-decoration:none; }
+.contact-detail-val a:hover { color:var(--grey-dark); }
+
+.footer { display:grid; grid-template-columns:1fr 1fr 1fr; border-top:1px solid var(--border); }
+.footer-col { padding:32px 24px; border-right:1px solid var(--border); }
+.footer-col:last-child { border-right:none; }
+.footer-label { font-size:11px; font-weight:400; letter-spacing:0.09em; text-transform:uppercase; color:var(--grey-light); margin-bottom:12px; }
+.footer-val { font-size:13px; color:var(--grey-mid); line-height:1.7; }
+.footer-val a { color:var(--grey-mid); text-decoration:none; }
+.footer-val a:hover { color:var(--grey-dark); }
+.footer-bottom { padding:20px 24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; }
+.footer-copy { font-size:11px; color:var(--grey-light); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="miad_index.html">MIAD</a>
+  <ul class="nav-links">
+    <li><a href="miad_work.html">Work</a></li>
+    <li><a href="miad_about.html" class="active">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <h1 class="page-title">About</h1>
+  <p class="page-intro">MIAD works at the intersection of AI strategy and creative direction for Architecture &amp; Design brands. We bring deep industry fluency — not generic AI consulting.</p>
+</div>
+
+<div class="about-body">
+  <div class="about-col">
+    <div class="about-section-label">What we do</div>
+    <h2 class="about-headline">Where sector knowledge meets design intelligence.</h2>
+    <p class="about-text">We understand the material culture of Architecture &amp; Design — the pace of its cycles, the language of its objects, and the relationships that move it. That knowledge is the foundation of everything we build.</p>
+    <p class="about-text">Our work spans brand strategy, creative direction, digital transformation, and AI integration. We do not apply generic frameworks. We build from the inside of the industry out.</p>
+    <p class="about-text">MIAD was founded by two practitioners who have spent their careers in this space — one as a creative director shaping how design brands communicate, the other as a marketing leader inside the industry's most respected manufacturers.</p>
+  </div>
+  <div class="about-col">
+    <div class="about-section-label">Founders</div>
+    <div class="founders">
+      <div class="founder">
+        <div class="founder-num">01</div>
+        <div>
+          <div class="founder-name">Frederik Frede</div>
+          <div class="founder-title">Co-Founder, Creative Director — Berlin</div>
+          <div class="founder-credits">Co-founder of Friends of Friends (FvF) and MoreSleep. Former Creative Director at TBWA. Work spanning Vitra, USM, HAY, e15, &amp;Tradition, Architonic, Thonet, Tylko, Louis Vuitton, Sonos, Pernod Ricard, Ruinart, BMW, Ritz Carlton.</div>
+        </div>
+      </div>
+      <div class="founder">
+        <div class="founder-num">02</div>
+        <div>
+          <div class="founder-name">Chuck Heckman</div>
+          <div class="founder-title">Co-Founder, CMO Dauphin — New York</div>
+          <div class="founder-credits">Chief Marketing Officer at Dauphin. Former CMO at Matter Surfaces. VP Strategy Director at Publicis New York with clients including Heineken, Samsung, P&amp;G. Co-Founder, OneBillion! Agency.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="services" id="services">
+  <div class="services-header">
+    <span class="services-label">Services</span>
+  </div>
+  <div class="service-row">
+    <span class="service-name">AI Strategy &amp; Roadmapping</span>
+    <span class="service-detail">Identifying where AI creates leverage in your specific operation. Prioritised roadmap with a financial case.</span>
+    <span class="service-arrow">→</span>
+  </div>
+  <div class="service-row">
+    <span class="service-name">Brand Strategy</span>
+    <span class="service-detail">Positioning, narrative architecture, and brand systems for design industry clients.</span>
+    <span class="service-arrow">→</span>
+  </div>
+  <div class="service-row">
+    <span class="service-name">Creative Direction</span>
+    <span class="service-detail">Visual identity, art direction, campaign, and editorial. From concept to execution.</span>
+    <span class="service-arrow">→</span>
+  </div>
+  <div class="service-row">
+    <span class="service-name">Digital Transformation</span>
+    <span class="service-detail">Platform strategy, digital product, and technology integration for A&amp;D brands.</span>
+    <span class="service-arrow">→</span>
+  </div>
+  <div class="service-row">
+    <span class="service-name">Content &amp; Editorial</span>
+    <span class="service-detail">Content strategy, editorial direction, and production. Built for design audiences.</span>
+    <span class="service-arrow">→</span>
+  </div>
+  <div class="service-row">
+    <span class="service-name">Go-to-Market</span>
+    <span class="service-detail">Launch strategy, channel planning, and campaign execution for new products and markets.</span>
+    <span class="service-arrow">→</span>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact" id="contact">
+  <div class="contact-left">
+    <div class="contact-label">Contact</div>
+    <h2 class="contact-headline">Start a conversation.</h2>
+    <p class="contact-text">We work with Architecture &amp; Design brands ready to move from intention to execution — on brand, on AI, or both. If the timing is right, we will tell you directly.</p>
+    <a class="btn-p" href="mailto:hello@miad.studio">Get in touch</a>
+  </div>
+  <div class="contact-right">
+    <div class="contact-detail">
+      <div class="contact-detail-label">Email</div>
+      <div class="contact-detail-val"><a href="mailto:hello@miad.studio">hello@miad.studio</a></div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-label">Based in</div>
+      <div class="contact-detail-val">Berlin, DE &amp; New York, US</div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-label">Follow</div>
+      <div class="contact-detail-val">
+        <a href="#">Instagram</a><br>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-col">
+    <div class="footer-label">Location</div>
+    <div class="footer-val">Berlin, DE<br>New York, US</div>
+  </div>
+  <div class="footer-col">
+    <div class="footer-label">Inquire</div>
+    <div class="footer-val"><a href="mailto:hello@miad.studio">hello@miad.studio</a></div>
+  </div>
+  <div class="footer-col">
+    <div class="footer-label">Navigation</div>
+    <div class="footer-val">
+      <a href="miad_work.html">Work</a><br>
+      <a href="miad_about.html">About</a><br>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</div>
+<div class="footer-bottom">
+  <span class="footer-copy">© 2026 MIAD</span>
+  <span class="footer-copy">Merging Intelligence &amp; Design</span>
+</div>
+
+</body>
+</html>
