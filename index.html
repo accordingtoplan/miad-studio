@@ -56,6 +56,7 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
 .project-item.square { padding:40px 0; }
 .project-item.square .img-wrap { width:42%; margin:0 auto; overflow:hidden; aspect-ratio:1/1; }
 
+.project-item.landscape .img-wrap { position:relative; }
 .img-wrap img, .img-wrap video {
   width:100%; height:100%; object-fit:cover; display:block;
   transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
@@ -171,8 +172,8 @@ const cases = [
     src:"https://storage.googleapis.com/system-on/homer/header-compressed.mp4", poster:"https://media.architonic.com/system-on/homer/architonic.jpg?width=1256&height=862&fit=inside&crop=true&format=webp" },
   { b:"Dauphin",           t:"Go-to-Market",            o:"portrait",  type:"img",
     src:"https://dacoql.wpenginepowered.com/wp-content/uploads/2026/01/averio-PLP_main.jpg" },
-  { b:"USM",               t:"Digital Transformation",  o:"landscape", type:"img",
-    src:"https://www.moresleep.net/wp-content/uploads/2018/01/Freunde-von-Freunden-Ricarda-Messner-1868-801x1200-1.jpg" },
+  { b:"USM",               t:"Digital Transformation",  o:"landscape", type:"vimeo",
+    src:"1048609984" },
   { b:"NZZ",               t:"Brand &amp; Digital",     o:"landscape", type:"img",
     src:"https://assets01.sdd1.ch/assets/lbwp-cdn/nzz-mediengruppe-v2/files/1715781184/nzzde_front_gerollt_21.png" },
   { b:"Lewis",             t:"Brand &amp; Digital",     o:"landscape", type:"video",
@@ -200,6 +201,8 @@ cases.forEach(p => {
   let media = '';
   if (p.type === 'video') {
     media = `<video autoplay muted loop playsinline poster="${p.poster||''}"><source src="${p.src}" type="video/mp4"></video>`;
+  } else if (p.type === 'vimeo') {
+    media = `<iframe src="https://player.vimeo.com/video/${p.src}?autoplay=1&muted=1&loop=1&background=1&autopause=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe>`;
   } else {
     media = `<img src="${p.src}" alt="${p.b}" loading="lazy" onerror="this.parentElement.style.background='#e4e0db';this.style.display='none'" />`;
   }
