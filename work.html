@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MIAD — Work</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root { --grey-dark:#4a4540; --grey-mid:#7a7470; --grey-light:#a8a39f; --border:#c8c3be; --bg:#fff; }
 body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(--bg); color:var(--grey-dark); }
 
 .nav { display:flex; justify-content:space-between; align-items:center; padding:18px 24px; border-bottom:1px solid var(--border); }
-.nav-logo { font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--grey-dark); text-decoration:none; }
+.nav-logo { font-size:16px; font-weight:400; letter-spacing:0.01em; color:var(--grey-dark); text-decoration:none; font-family:'UnifrakturMaguntia',serif; text-transform:none; }
 .nav-links { display:flex; gap:28px; list-style:none; }
 .nav-links a { font-size:12px; font-weight:400; color:var(--grey-mid); text-decoration:none; }
 .nav-links a:hover, .nav-links a.active { color:var(--grey-dark); }
@@ -24,7 +25,7 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
 .section-count { font-size:11px; color:var(--grey-light); }
 
 /* GRID */
-.grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); }
+.grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--border); }
 .ci { background:var(--bg); display:block; text-decoration:none; overflow:hidden; cursor:pointer; }
 .ciw { width:100%; overflow:hidden; background:#ede9e5; position:relative; }
 .ciw img, .ciw video { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
@@ -111,7 +112,7 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
   </div>
 </div>
 <div class="footer-bottom">
-  <span class="footer-copy">© 2026 MIAD</span>
+  <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:13px;">MIAD</span></span>
   <span class="footer-copy">Merging Intelligence &amp; Design</span>
 </div>
 
@@ -177,7 +178,7 @@ projects.forEach((p, idx) => {
   let media = '';
 
   if (p.type === 'carousel') {
-    media = `<div class="carousel-wrap" style="aspect-ratio:21/8;width:100%;">
+    media = `<div class="carousel-wrap" style="aspect-ratio:16/9;width:100%;">
       <div class="carousel-track" id="ct-${idx}" style="height:100%;">
         ${VITRA_IMGS.map(img => `<img src="${img}" alt="Vitra" loading="lazy" style="min-width:100%;height:100%;object-fit:cover;" />`).join('')}
       </div>
