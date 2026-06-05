@@ -47,6 +47,7 @@ body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: 
 .ci.l .ciw { aspect-ratio: 5/4; }
 .ci.full { grid-column: 1 / -1; }
 .ci.full .ciw { aspect-ratio: 21/8; }
+.ci.architonic .ciw { aspect-ratio: 4/3; }
 .cm { padding: 13px 24px 20px; display: flex; justify-content: space-between; align-items: baseline; }
 .cb { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--grey-dark); }
 .ct { font-size: 11px; color: var(--grey-light); }
@@ -151,7 +152,7 @@ const cases = [
   { b:"Louis Vuitton", t:"Employer Branding", type:"video", src:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton/v2_lv_graded_render_h264-Original_Sub_02_2.mp4", poster:"https://www.freundevonfreunden.com/app/uploads/louis-vuitton-a-global-employer-branding-campaign-and-extended-work-culture-documentary/Friends-of-Friends-LV-WorkshopsCreation-0392.jpg", ratio:"p" },
   { b:"Dauphin",   t:"Go-to-Market",          type:"img",   src:"https://dacoql.wpenginepowered.com/wp-content/uploads/2026/01/averio-PLP_main.jpg", ratio:"p" },
   // Row 2: Architonic full width
-  { b:"Architonic",t:"Platform Strategy",     type:"img",   src:"https://media.architonic.com/system-on/homer/architonic.jpg?width=1256&height=862&fit=inside&crop=true&format=webp", full:true },
+  { b:"Architonic",t:"Platform Strategy",     type:"img",   src:"https://media.architonic.com/system-on/homer/architonic.jpg?width=1256&height=862&fit=inside&crop=true&format=webp", full:true, cls:"architonic" },
   // Row 3: Sonos + Vitra
   { b:"Sonos",     t:"Brand &amp; Content",   type:"img",   src:"https://media.sonos.com/images/znqtjj88/production/12bfad13c968850e7b5795545773ce893fede974-2440x2440.jpg?w=1080&q=100&fit=clip&auto=format", ratio:"p" },
   { b:"Vitra",     t:"Brand Strategy",        type:"img",   src:"https://static.vitra.com/products/41218500/LCH_41218500.LCH_MAS_01=02;LCH_41218500.LCH_VAN_01=05;LCH_41218500.LCH_COV_01=0075;LCH_41218500.BZF_LPF_01=66;LCH_41218500.LCH_BAS_01=02;LCH_41218500.LCH_BAS_ON_01=05;LCH_41218500.WPROMO_25_LCH=01;LCH_41218500.ZV99999_CHR_PAC01=K001.png", ratio:"p" },
@@ -165,7 +166,7 @@ const cases = [
 const G = document.getElementById('case-grid');
 cases.forEach(p => {
   const a = document.createElement('a');
-  a.className = 'ci ' + (p.full ? 'full' : p.ratio);
+  a.className = 'ci ' + (p.cls ? p.cls : (p.full ? 'full' : p.ratio));
   a.href = 'miad_work.html';
 
   let media = '';
