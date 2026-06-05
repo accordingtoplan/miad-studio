@@ -11,14 +11,7 @@ html { scroll-behavior: smooth; }
 :root { --grey-dark:#4a4540; --grey-mid:#7a7470; --grey-light:#a8a39f; --border:#c8c3be; --bg:#fff; }
 body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(--bg); color:var(--grey-dark); }
 
-/* NAV */
-.nav { display:flex; justify-content:space-between; align-items:center; padding:16px 24px; border-bottom:none; position:sticky; top:0; background:var(--bg); z-index:100; }
-.nav-left { display:flex; align-items:baseline; }
-.nav-logo { font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--grey-dark); text-decoration:none; }
-.nav-studio { font-size:13px; font-weight:400; color:var(--grey-mid); text-decoration:none; }
-.nav-links { display:flex; gap:24px; list-style:none; }
-.nav-links a { font-size:12px; font-weight:400; color:var(--grey-mid); text-decoration:none; }
-.nav-links a:hover, .nav-links a.active { color:var(--grey-dark); }
+
 
 /* PAGE */
 .page { max-width:100%; padding:64px 24px 96px; }
@@ -102,6 +95,36 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
 .footer-val a:hover { color:var(--grey-dark); }
 .footer-bottom { padding:20px 24px; border-top:none; display:flex; justify-content:space-between; }
 .footer-copy { font-size:11px; color:var(--grey-light); }
+
+/* NAV — Alright style */
+.nav {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:16px 24px;
+  border-bottom:none;
+  position:sticky; top:0; background:var(--bg); z-index:100;
+}
+.nav-left { display:flex; align-items:baseline; }
+.nav-logo { font-size:13px; font-weight:700; letter-spacing:0.01em; color:var(--grey-dark); text-decoration:none; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; }
+.nav-studio { font-size:13px; font-weight:400; color:var(--grey-mid); text-decoration:none; }
+.nav-links { display:flex; gap:0; list-style:none; align-items:center; }
+.nav-links li { display:inline; }
+.nav-links li::after { content:","; font-size:12px; color:var(--grey-light); margin-right:6px; }
+.nav-links li:last-child::after { content:""; margin-right:0; }
+.nav-links a { font-size:12px; font-weight:400; color:var(--grey-mid); text-decoration:none; letter-spacing:0.01em; margin-right:6px; }
+.nav-links a:hover { color:var(--grey-dark); }
+.nav-links a.active { font-weight:700; color:var(--grey-dark); }
+
+/* FOOTER — Alright style */
+.footer-bar {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 24px;
+  border-top:1px solid var(--border);
+}
+.footer-copy { font-size:12px; color:var(--grey-light); }
+.footer-links { display:flex; gap:16px; }
+.footer-links a { font-size:12px; color:var(--grey-mid); text-decoration:none; }
+.footer-links a:hover { color:var(--grey-dark); }
+
 </style>
 </head>
 <body>
@@ -111,9 +134,10 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
     <a class="nav-logo" href="/miad-studio/">MIAD</a><a class="nav-studio" href="/miad-studio/about.html">&nbsp;Studio</a>
   </div>
   <ul class="nav-links">
+    <li><a href="/miad-studio/">Home</a></li>
     <li><a href="/miad-studio/work.html">Work</a></li>
-    <li><a href="/miad-studio/about.html" class="active">About</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="/miad-studio/about.html" class="active">Information</a></li>
+    <li><a href="/miad-studio/about.html#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -255,14 +279,12 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
 
 </div>
 
-<div class="footer">
-  <div class="footer-col"><div class="footer-label">Location</div><div class="footer-val">Berlin, DE<br>New York, US</div></div>
-  <div class="footer-col"><div class="footer-label">Inquire</div><div class="footer-val"><a href="mailto:hello@miad.studio">hello@miad.studio</a></div></div>
-  <div class="footer-col"><div class="footer-label">Navigation</div><div class="footer-val"><a href="/miad-studio/work.html">Work</a><br><a href="/miad-studio/about.html">About</a><br><a href="#contact">Contact</a></div></div>
-</div>
-<div class="footer-bottom">
+<div class="footer-bar">
   <span class="footer-copy">© 2026 <span style="font-family:'UnifrakturMaguntia',serif;font-size:13px;">MIAD</span></span>
-  <span class="footer-copy">Merging Intelligence &amp; Design</span>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">LinkedIn</a>
+  </div>
 </div>
 
 </body>
