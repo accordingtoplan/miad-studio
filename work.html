@@ -70,12 +70,12 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
 <body>
 
 <nav class="nav">
-  <a class="nav-logo" href="miad_index.html">MIAD</a>
+  <a class="nav-logo" href="/miad-studio/">MIAD</a>
   <ul class="nav-links">
-    <li><a href="miad_work.html" class="active">Work</a></li>
-    <li><a href="miad_about.html">About</a></li>
-    <li><a href="miad_about.html#services">Services</a></li>
-    <li><a href="miad_about.html#contact">Contact</a></li>
+    <li><a href="/miad-studio/work.html" class="active">Work</a></li>
+    <li><a href="/miad-studio/about.html">About</a></li>
+    <li><a href="/miad-studio/about.html#services">Services</a></li>
+    <li><a href="/miad-studio/about.html#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -104,9 +104,9 @@ body { font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; background:var(-
   <div class="footer-col">
     <div class="footer-label">Navigation</div>
     <div class="footer-val">
-      <a href="miad_work.html">Work</a><br>
-      <a href="miad_about.html">About</a><br>
-      <a href="miad_about.html#contact">Contact</a>
+      <a href="/miad-studio/work.html">Work</a><br>
+      <a href="/miad-studio/about.html">About</a><br>
+      <a href="/miad-studio/about.html#contact">Contact</a>
     </div>
   </div>
 </div>
@@ -172,7 +172,7 @@ projects.forEach((p, idx) => {
   const a = document.createElement('a');
   const cls = p.ratio === 'full' ? 'full' : p.ratio;
   a.className = 'ci ' + cls;
-  a.href = '#';
+  a.href = '/miad-studio/work.html';
 
   let media = '';
 
